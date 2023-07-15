@@ -27,7 +27,7 @@ void solve(int idx,vector<int> &A,int target,vector<int>&temp){
     // base case
     if(idx==A.size()){
         if(target==0){
-            sort(ans.begin(),ans.end());
+            //sort(ans.begin(),ans.end());
             ans.push_back(temp);
         }
         

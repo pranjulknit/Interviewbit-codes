@@ -29,3 +29,49 @@
 
 // Example Explanation
 // A = 4, it can be written as 2 ^ 2
+
+
+
+
+
+
+
+int Solution::isPower(int A) {
+    
+    // logic is find the factors  and if they 
+    // occurs in any pair of coprime aur only one
+    // then their couldn't be power of more than 1
+    
+   
+    set<int> div;
+    for(int i=2;i*i<=A;i++){
+        int cnt= 0;
+        while(A!=1 && A%i==0){
+            A /= i;
+            cnt++;
+        }
+        
+        if(cnt){
+            div.insert(cnt);
+        }
+        
+    }
+   // cout<<prime.size()<<endl;
+   
+    
+    if(A!=1){
+        return 0;
+    }
+    auto it = div.begin();
+    int gcd = *it;
+
+    
+    // gcd is for calculating that it is not 1
+    for(auto it:div){
+        int x = it;
+        gcd = __gcd(gcd,x);
+    }
+   
+    return gcd!=1;
+    
+}
